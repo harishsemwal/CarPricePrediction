@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Prediction</h1>
+        <form method="post">
+            <div>
+                <label for="present_price">Present Price (in lakhs):</label>
+                <input type="number" step="0.1" id="present_price" name="present_price" required>
+            </div>
+            <div>
+                <label for="kms_driven">Kms Driven:</label>
+                <input type="number" id="kms_driven" name="kms_driven" required>
+            </div>
+            <div>
+                <label for="owner">Owner:</label>
+                <select id="owner" name="owner" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div>
+                <label for="years_old">Years Old:</label>
+                <input type="number" id="years_old" name="years_old" required>
+            </div>
+            <div>
+                <label for="fuel_type">Fuel Type:</label>
+                <select id="fuel_type" name="fuel_type" required>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            </div>
+            <div>
+                <label for="seller_type">Seller Type:</label>
+                <select id="seller_type" name="seller_type" required>
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+            <div>
+                <label for="transmission">Transmission:</label>
+                <select id="transmission" name="transmission" required>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if prediction is not none %}
+            <div class="prediction">
+                Predicted Selling Price: ₹{{ prediction | round(2) }} lakhs
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
