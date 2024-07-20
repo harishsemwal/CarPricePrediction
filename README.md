@@ -124,4 +124,4 @@ This project is licensed under the MIT License.
 ---
 
 **Developed by Harish Prasad Semwal**  
-**Email:** harishsemwal@example.com
+**Email:** harishsemwal@gmail.com
